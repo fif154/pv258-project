@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { GoogleGenAI } from '@google/genai'
+import styles from "./Chat.module.css"
+import { IoMdSend } from "react-icons/io";
 
 type Role = 'assistant' | 'user' | 'bot';
 type Message = {
@@ -39,22 +41,23 @@ export const Chat = () => {
 
   return (
     <div>
-      <div>
+      <div className={styles.messageBox}>
         {messages.map((msg, i) => (
-          <div key={i}>
-            <strong>{msg.role === 'user' ? 'You' : 'Bot'}:</strong> {msg.content}
-          </div>
+            <div className={`${styles.messageContainer} ${msg.role === 'user' ? styles.userMessage : styles.botMessage}`}>
+              <div key={i} className={styles.message}>{msg.content}</div>
+            </div>
         ))}
         {loading && "Typing..."}
       </div>
-      <div>
+      <div className={styles.chatWindow}>
         <input
+        className={styles.input}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
           placeholder="Type your message..."
         />
-        <button onClick={sendMessage}>Send</button>
+        <button className={styles.send} onClick={sendMessage}><IoMdSend /></button>
       </div>
     </div>
   )
