@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { GoogleGenAI } from '@google/genai'
+
 import styles from "./Chat.module.css"
 import { IoMdSend } from "react-icons/io";
 
@@ -52,12 +53,15 @@ export const Chat = () => {
       <div className={styles.chatWindow}>
         <input
         className={styles.input}
+
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
           placeholder="Type your message..."
         />
+
         <button className={styles.send} onClick={sendMessage}><IoMdSend /></button>
+
       </div>
     </div>
   )
