@@ -22,7 +22,7 @@ A web-based platform designed to assist software engineers, analysts, and projec
 ## Tech Stack
 - Frontend: React + TypeScript (Vite.js)
 - AI Backend: Gemini API
-- Styling: TailwindCSS
+- Styling: CSS
 
 ## Getting Started
 
