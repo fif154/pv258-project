@@ -3,12 +3,20 @@ import { GoogleGenAI } from '@google/genai'
 
 import styles from "./Chat.module.css"
 import { IoMdSend } from "react-icons/io";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type Role = 'assistant' | 'user' | 'bot';
 type Message = {
     role: Role;
     content: string;
 }
+
+const contextPrompt = `You are an expert assistant in software requirements engineering. 
+Your responses must focus on estimating the effort required for different parts of a software project, 
+based on requirement specifications or user stories. Additionally, evaluate how AI-driven platforms can 
+help detect quality issues in requirements—such as ambiguity, incompleteness, or complexity. 
+Always keep your answers grounded in this domain.`;
 
 const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
@@ -26,10 +34,9 @@ export const Chat = () => {
     setLoading(true)
 
     try {
-        console.log('xd', newMessages)
         const res = await ai.models.generateContent({
             model: "gemini-2.0-flash",
-            contents: newMessages.map(m => m.content),
+            contents:[contextPrompt, ...newMessages.map(m => m.content)],
           });
 
       setMessages([...newMessages, {role: 'bot', content: res.text ?? ''}])
@@ -45,10 +52,12 @@ export const Chat = () => {
       <div className={styles.messageBox}>
         {messages.map((msg, i) => (
             <div className={`${styles.messageContainer} ${msg.role === 'user' ? styles.userMessage : styles.botMessage}`}>
-              <div key={i} className={styles.message}>{msg.content}</div>
+              <div key={i} className={styles.message}><ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown></div>
             </div>
         ))}
-        {loading && "Typing..."}
+        {loading && 
+        <div className={styles.message}>Typing...</div>
+        }
       </div>
       <div className={styles.chatWindow}>
         <input

@@ -22,6 +22,7 @@
     background: #3C3D37;
     border: solid 0.15rem grey;
     border-radius: 0.6rem;
+    color: white;
 }
 
 .messageContainer{
@@ -44,10 +45,43 @@
     padding: 0.5rem;
     border: solid 0.1rem grey;
     border-radius: 0.6rem;
-    width: 25%;
+    width: 75%;
     color: #ECDFCC;
     margin-left: 10rem;
     margin-right: 10rem;
+}
+
+.message code {
+  background: #242424;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.message pre {
+  background: #8d8d8d;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.message table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.message th,
+.message td {
+  border: 1px solid #313131;
+  padding: 8px;
+  text-align: left;
+}
+
+.message th {
+  background-color: #313131;
+  font-weight: bold;
 }
 
 .sender{
