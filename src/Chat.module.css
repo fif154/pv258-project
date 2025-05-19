@@ -1,54 +1,55 @@
-.messageBox{
-    height: 35rem;
-    overflow: scroll;
-    overflow-x: hidden;
+.messageBox {
+  height: 90%;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .messageBox::-webkit-scrollbar {
-    display: none;
-  }
-
-.chatWindow{
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem;
+  display: none;
 }
 
-.input{
-    width: 40%;
-    height: 2rem;
-    padding-inline: 1rem;
-    background: #3C3D37;
-    border: solid 0.15rem grey;
-    border-radius: 0.6rem;
-    color: white;
+.chatWindow {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
 }
 
-.messageContainer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.input {
+  width: 40%;
+  height: 2rem;
+  padding-inline: 1rem;
+  background: #3c3d37;
+  border: solid 0.15rem grey;
+  border-radius: 0.6rem;
+  color: white;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.messageContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .userMessage {
-    justify-content: flex-end;
-}
-  
-.botMessage {
-    justify-content: flex-start;
+  justify-content: flex-end;
 }
 
-.message{
-    background-color: #3C3D37;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: solid 0.1rem grey;
-    border-radius: 0.6rem;
-    width: 75%;
-    color: #ECDFCC;
-    margin-left: 10rem;
-    margin-right: 10rem;
+.botMessage {
+  justify-content: flex-start;
+}
+
+.message {
+  background-color: #3c3d37;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: solid 0.1rem grey;
+  border-radius: 0.6rem;
+  width: 75%;
+  color: #ecdfcc;
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
 .message code {
@@ -74,7 +75,7 @@
 
 .message th,
 .message td {
-  border: 1px solid #313131;
+  border: 1px solid #9e9e9e;
   padding: 8px;
   text-align: left;
 }
@@ -84,20 +85,24 @@
   font-weight: bold;
 }
 
-.sender{
-    padding-left: 0.3rem;
-    padding-bottom: 0.2rem;
-    color: #ECDFCC;
-    font-size: 0.7rem;
+.sender {
+  padding-left: 0.3rem;
+  padding-bottom: 0.2rem;
+  color: #ecdfcc;
+  font-size: 0.7rem;
 }
 
-.send{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-color: #3C3D37;
-    color: #ECDFCC;
+.send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #3c3d37;
+  color: #ecdfcc;
+}
+
+.chat {
+  height: 100%;
 }
